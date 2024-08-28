@@ -1,4 +1,4 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -98,9 +98,10 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
 }
 
-.hero::after {
+/* .hero::after {
   content: "";
   display: block;
   position: absolute;
@@ -112,12 +113,16 @@ body {
     rgba(15, 15, 15, 1) 10%,
     rgba(255, 255, 255, 0) 100%
   );
-  /* background:red; */
-}
+  /* background:red; 
+} */
 
 .hero .content {
   padding: 1.4rem 7%; /* vertical 1.4 horizontal 7% */
   max-width: 54rem;
+  width: 100%;
+  /* text-align: center; */
+  position: fixed;
+  top: 220px;
 }
 
 .content h1 {
@@ -181,6 +186,10 @@ body {
 
 .about-img img {
   width: 100%;
+  mask-image: url(../img/menu/coffee-bean-svgrepo-com.svg);
+  mask-size: 60%;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .row .content {
@@ -321,9 +330,15 @@ footer .credit {
   font-size: 0.8rem;
 }
 
-footer .credit a{
+footer .credit a {
   color: var(--bg);
   font-weight: 600;
+}
+
+@media (min-width: 1367px) and (max-width: 1440px) {
+  .hero .content {
+    top: 300px;
+  }
 }
 
 /* ukuran laptop */
