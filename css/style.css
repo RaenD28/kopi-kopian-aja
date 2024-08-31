@@ -30,7 +30,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 7%; /* 1.4 vertical, 7% horizontal (7% supaya responsive saat di buka di device lain */
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
   border-bottom: 2px solid var(--primary);
   position: fixed;
   top: 0;
@@ -125,6 +125,21 @@ body {
 }
 
 /* Shopping cart */
+#shopping-cart-button {
+  position: relative;
+}
+
+#shopping-cart-button .quantity-badge {
+  display: inline-block;
+  padding: 1px 4px;
+  background-color: red;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  position: absolute;
+  /* top: 0; */
+  right: -10px;
+}
+
 .navbar .shopping-cart {
   position: absolute;
   top: 100%;
@@ -133,46 +148,113 @@ body {
   width: 35rem;
   padding: 0 1.5rem;
   background-color: white;
+  overflow-y: auto;
   color: var(--bg);
   transition: 0.3s;
 }
 
-.navbar .shopping-cart.active{
+.navbar .shopping-cart.active {
   right: 0;
 }
 
-.shopping-cart img{
-  height: 6rem;
+.shopping-cart img {
+  height: 5rem;
   border-radius: 50%;
 }
 
-.shopping-cart h3{
-  font-size: 1.6rem;
+.shopping-cart h3 {
+  font-size: 1.5rem;
   padding-bottom: 0.5rem;
 }
 
-.shopping-cart .cart-item{
+.shopping-cart .cart-item {
   margin: 2rem 0;
   display: flex;
   align-items: center;
   gap: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px dashed #666;
+  border-bottom: 1px solid #666;
   position: relative;
 }
 
-.shopping-cart .item-price{
+.shopping-cart .item-price {
   font-size: 1rem;
 }
 
-.shopping-cart .remove-item{
-  position: absolute;
-  right: 1rem;
+.shopping-cart .cart-item #add,
+.shopping-cart .cart-item #remove {
+  display: inline-block;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin: 0 8px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.shopping-cart h4 {
+  font-size: 1.2rem;
+  margin-top: -1rem;
+  text-align: center;
+}
+
+/* Checkout form */
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid black;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.form-container h5 {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.form-container form {
+  width: 100%;
+  text-align: center;
+}
+
+.form-container label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.form-container span {
+  text-align: right;
+}
+
+.form-container input {
+  background-color: #ddd;
+  padding: 5px;
+  font-size: 1rem;
+  width: 70%;
+}
+
+.form-container .checkout-button {
+  padding: 6px 14px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 8rem;
   cursor: pointer;
 }
 
-.shopping-cart .remove-item:hover{
-  color: var(--primary);
+.form-container .checkout-button.disabled { /* jangan kasih spasi pada .disabled karena bukan mencari kelas di dalam kelas */
+  background-color: gray;
+  cursor: not-allowed;
 }
 
 /* Hero Section */
@@ -406,12 +488,6 @@ body {
   font-weight: bold;
 }
 
-.products .product-price span {
-  text-decoration: line-through;
-  font-weight: lighter;
-  font-size: 1rem;
-}
-
 /* Contact Section */
 .contact .row {
   display: flex;
@@ -500,7 +576,7 @@ footer .credit a {
 
 /* Modal Box */
 /* Item Detail */
-.modal{
+.modal {
   display: none;
   position: fixed;
   z-index: 9999;
@@ -512,7 +588,7 @@ footer .credit a {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.modal-container{
+.modal-container {
   position: relative;
   background-color: white;
   color: var(--bg);
@@ -523,46 +599,46 @@ footer .credit a {
   animation: animateModal 0.5s;
 }
 
-@keyframes animateModal{
-  from{
+@keyframes animateModal {
+  from {
     top: -300px;
     opacity: 0;
   }
 
-  to{
+  to {
     top: 0;
     opacity: 1;
   }
 }
 
-.modal-container .close-icon{
+.modal-container .close-icon {
   position: absolute;
   right: 1rem;
 }
 
-.modal-content{
+.modal-content {
   display: flex;
   flex-wrap: nowrap;
 }
 
-.modal-content img{
+.modal-content img {
   height: 20rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
 }
 
-.modal-content h3{
+.modal-content h3 {
   font-size: x-large;
 }
 
-.modal-content p{
+.modal-content p {
   font-size: 1.2rem;
   line-height: 1.8rem;
   margin-top: 1.2rem;
   margin-bottom: 1rem;
 }
 
-.modal-content a{
+.modal-content a {
   display: flex;
   gap: 1rem;
   width: 12rem;
@@ -672,7 +748,7 @@ footer .credit a {
     padding-top: 0;
   }
 
-  .modal-content{
+  .modal-content {
     flex-wrap: wrap;
   }
 }
