@@ -252,7 +252,8 @@ body {
   cursor: pointer;
 }
 
-.form-container .checkout-button.disabled { /* jangan kasih spasi pada .disabled karena bukan mencari kelas di dalam kelas */
+.form-container .checkout-button.disabled {
+  /* jangan kasih spasi pada .disabled karena bukan mencari kelas di dalam kelas */
   background-color: gray;
   cursor: not-allowed;
 }
